@@ -67,9 +67,13 @@ bool loadImages(const char *path)
 {
     bool awesomeActive = path == "textures/awesomeface.png";
     bool success;
-    if(awesomeActive){
+
+    if (awesomeActive)
+    {
         success = loadImage(path, texture1, true, true);
-    } else {
+    }
+    else
+    {
         success = loadImage(path, texture1);
     }
 
@@ -83,21 +87,22 @@ bool loadTextures()
     return loadImages("textures/awesomeface.png");
 }
 
-
-void changeTexture(GLFWwindow* window, int key, int scancode, int action, int mods)
+void changeTexture(GLFWwindow *window, int key, int scancode, int action, int mods)
 {
     static int position = 0;
     const char *paths[] = {
         "textures/awesomeface.png",
         "textures/container.jpg",
-        "textures/wall.jpg"
-    };
+        "textures/wall.jpg"};
 
-    if (key == GLFW_KEY_RIGHT && action == GLFW_PRESS ) {
+    if (key == GLFW_KEY_RIGHT && action == GLFW_PRESS)
+    {
         position++;
         position = position > 2 ? 0 : position;
         loadImages(paths[position]);
-    } else if (key == GLFW_KEY_LEFT && action == GLFW_PRESS){
+    }
+    else if (key == GLFW_KEY_LEFT && action == GLFW_PRESS)
+    {
         position--;
         position = position < 0 ? 2 : position;
         loadImages(paths[position]);
@@ -112,7 +117,6 @@ bool init()
     glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 4);
     glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 1);
     glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
-
 
     // glfw window creation
     // --------------------
