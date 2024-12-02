@@ -86,22 +86,9 @@ bool loadTextures()
 
 void changeTexture(GLFWwindow* window, int key, int scancode, int action, int mods)
 {
-    static int position = 0;
-    const char *paths[] = {
-        "textures/awesomeface.png",
-        "textures/container.jpg",
-        "textures/wall.jpg"
-    };
 
-    if (key == GLFW_KEY_RIGHT && action == GLFW_PRESS ) {
-        position++;
-        position = position > 2 ? 0 : position;
-        loadImages(paths[position]);
-    } else if (key == GLFW_KEY_LEFT && action == GLFW_PRESS){
-        position--;
-        position = position < 0 ? 2 : position;
-        loadImages(paths[position]);
-    }
+
+
 }
 
 bool init()
